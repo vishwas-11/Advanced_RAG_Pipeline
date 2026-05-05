@@ -6,8 +6,7 @@ langchain
 langchain-core
 langchain-community
 langchain-openai
-
-chromadb
+langchain-mongodb
 pymongo
 
 sentence-transformers
@@ -15,6 +14,10 @@ rank-bm25
 
 pydantic
 sqlalchemy
+email-validator
+passlib[bcrypt]
+bcrypt<5
+python-jose[cryptography]
 
 ragas
 
