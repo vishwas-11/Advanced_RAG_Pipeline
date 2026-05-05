@@ -1,14 +1,18 @@
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 
-from app.config import OPENAI_API_KEY
+from app.config import OPENAI_API_KEY, OPENAI_CHAT_MODEL
 
 def get_llm():
     if not OPENAI_API_KEY:
         raise RuntimeError(
             "OPENAI_API_KEY is not set. Add it to .env or the environment before using query transforms."
         )
-    return ChatOpenAI(api_key=OPENAI_API_KEY)
+    return ChatOpenAI(
+        model=OPENAI_CHAT_MODEL,
+        api_key=OPENAI_API_KEY,
+        temperature=0,
+    )
 
 def multi_query(query):
     prompt = ChatPromptTemplate.from_template(
